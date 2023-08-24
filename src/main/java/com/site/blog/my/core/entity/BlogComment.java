@@ -1,7 +1,6 @@
 package com.site.blog.my.core.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-
 import java.util.Date;
 
 public class BlogComment {
@@ -30,6 +29,16 @@ public class BlogComment {
     private Byte commentStatus;
 
     private Byte isDeleted;
+
+    private String imgUrl;
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
 
     public Long getCommentId() {
         return commentId;

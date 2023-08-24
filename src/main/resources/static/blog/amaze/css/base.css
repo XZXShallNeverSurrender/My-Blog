@@ -4356,10 +4356,11 @@
  
  .comments .avatar {
    width: 50px;
-   height: 50px;
+   height: 55px;
    border-radius: 100%;
    margin-right: 20px;
    background-size: contain;
+   right: -40px; /* 根据需求适当调整负的 left 值 */
  }
  
  .comments main {
@@ -4591,7 +4592,7 @@ aside.comments .comment header img {
 
 aside.comments .comment header .meta {
     margin-left: 100px;
-    font-size: 14px;
+    font-size: 16px;
 }
 .back-top {
     position: fixed;

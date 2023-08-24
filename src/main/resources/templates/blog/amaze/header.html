@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="head-fragment">
     <meta charset="utf-8">
-    <title th:text="|${configurations.get('websiteName')} - ${pageName}|">主页</title>
+    <title th:text="|${configurations.get('websiteName')} - ${pageName}|">home</title>
     <meta name="description" th:content="${configurations.get('websiteDescription')}">
     <link rel="shortcut icon" th:href="@{${configurations.get('websiteIcon')}}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -25,13 +25,13 @@
         <div class="navbar-collapse" style="display: none;" id="toggle-items" >
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a th:href="@{/index}">主页</a>
+                    <a th:href="@{/index}">home</a>
                 </li>
                 <li>
-                    <a th:href="@{/link}">友链</a>
+                    <a th:href="@{/link}">link</a>
                 </li>
                 <li>
-                    <a th:href="@{/about}">关于</a>
+                    <a th:href="@{/about}">about</a>
                 </li>
                 <li>
                     <a href="https://github.com/ZHENFENG13">GitHub</a>
@@ -42,13 +42,13 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a th:href="@{/index}">主页</a>
+                        <a th:href="@{/index}">home</a>
                     </li>
                     <li>
-                        <a th:href="@{/link}">友链</a>
+                        <a th:href="@{/link}">link</a>
                     </li>
                     <li>
-                        <a th:href="@{/about}">关于</a>
+                        <a th:href="@{/about}">about</a>
                     </li>
                     <li>
                         <a href="https://github.com/ZHENFENG13">GitHub</a>
@@ -75,7 +75,7 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="site-heading">
           <span class="subheading">
-              我不怕千万人阻挡，只怕自己投降
+              shalle never surrender
           </span>
                 </div>
             </div>

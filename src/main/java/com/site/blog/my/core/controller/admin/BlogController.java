@@ -196,9 +196,9 @@ public class BlogController {
         tempName.append(sdf.format(new Date())).append(r.nextInt(100)).append(suffixName);
         String newFileName = tempName.toString();
         //创建文件
-        File destFile = new File(Constants.FILE_UPLOAD_DIC + newFileName);
+        File fileDirectory = new File(Constants.FILE_UPLOAD_DIC_TWO);
+        File destFile = new File(System.getProperty("user.dir")+Constants.FILE_UPLOAD_DIC + newFileName);
         String fileUrl = MyBlogUtils.getHost(new URI(request.getRequestURL() + "")) + "/upload/" + newFileName;
-        File fileDirectory = new File(Constants.FILE_UPLOAD_DIC);
         try {
             if (!fileDirectory.exists()) {
                 if (!fileDirectory.mkdir()) {

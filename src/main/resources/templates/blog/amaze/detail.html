@@ -41,8 +41,8 @@
                         <th:block th:text="${#dates.format(blogDetailVO.createTime, 'yyyy-MM-dd')}"></th:block> &nbsp;
                             <div class="comments-view" style="display: inline-block">
                                 <a href="#comments" class="article-comments"><th:block
-                                        th:text="${blogDetailVO.commentCount}"></th:block>条评论</a> &nbsp;
-                                <th:block th:text="${blogDetailVO.blogViews}"></th:block>浏览
+                                        th:text="${blogDetailVO.commentCount}"></th:block> comments</a> &nbsp;
+                                <th:block th:text="${blogDetailVO.blogViews}"></th:block> views
                             </div>
                             </span>
                     <div class="tags post-tags">
@@ -63,7 +63,8 @@
                 <div id="post-content" class="am-article-bd article-body">
                     <th:block th:utext="${blogDetailVO.blogContent}"/>
                     <aside class="blog-rights clearfix">
-                        <p>本站文章除注明转载/出处外，皆为作者原创，欢迎转载，但未经作者同意必须保留此段声明，且在文章页面明显位置给出原文链接，否则保留追究法律责任的权利。</p>
+                        <p>Unless otherwise stated, all articles on this website are original creations of the author. Reproduction is welcome, but permission must be obtained from the author, and this statement must be retained. Additionally, a clear and visible attribution to the original article must be provided with a link back to the original source. Failure to comply with these conditions will result in the author reserving the right to pursue legal action.
+                        </p>
                     </aside>
                 </div>
             </article>
@@ -75,11 +76,11 @@
             <th:block th:each="comment,iterStat : ${commentPageResult.list}">
                 <article class="comment">
                     <header class="clearfix">
-                        <img th:src="@{/blog/default/img/avatar.png}" class="avatar">
+                        <img th:src="@{${comment.imgUrl}(s='80',r='G',d='')}" class="avatar"/>
                         <div class="meta">
                             <h3 th:text="${comment.commentator}"></h3>
                             <span class="date">
-                                       评论时间：<th:block
+                                       comment time：<th:block
                                     th:text="${#dates.format(comment.commentCreateTime, 'yyyy-MM-dd HH:mm:ss')}"></th:block>
                                     </span>
                         </div>
@@ -142,43 +143,43 @@
     <th:block th:if="${blogDetailVO.enableComment==0}">
         <aside class="create-comment" id="create-comment">
             <hr>
-            <h2><i class="fa fa-pencil"></i> 添加评论</h2>
+            <h2><i class="fa fa-pencil"></i> add comment</h2>
             <table id="commentForm" class="form">
                 <tbody>
                 <tr>
                     <td>
                         <input type="hidden" id="blogId" name="blogId" th:value="${blogDetailVO.blogId}"></input>
-                        <input type="text" name="commentator" id="commentator" placeholder="(*必填)怎么称呼你?">
+                        <input type="text" name="commentator" id="commentator" placeholder="Your nickName (*can not be null)">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="email" name="email" id="email" placeholder="(*必填)你的联系邮箱">
+                        <input type="email" name="email" id="email" placeholder=" Your email">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" name="websiteUrl" id="websiteUrl" placeholder="你的网站地址(可不填)">
+                        <input type="text" name="websiteUrl" id="websiteUrl" placeholder=" Your website">
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <input style="width:50%" type="text" name="verifyCode" id="verifyCode"
-                               placeholder="(*必填)请输入验证码">&nbsp;&nbsp;
-                        <img alt="单击图片刷新！" class="pointer" style="margin-top: 15px; border-radius: 25px;"
-                             th:src="@{/common/kaptcha}"
-                             onclick="this.src='/common/kaptcha?d='+new Date()*1">
-                    </td>
+<!--                    <td>-->
+<!--                        <input style="width:50%" type="text" name="verifyCode" id="verifyCode"-->
+<!--                               placeholder="verifyCode">&nbsp;&nbsp;-->
+<!--                        <img alt="click it to refresh" class="pointer" style="margin-top: 15px; border-radius: 25px;"-->
+<!--                             th:src="@{/common/kaptcha}"-->
+<!--                             onclick="this.src='/common/kaptcha?d='+new Date()*1">-->
+<!--                    </td>-->
                 </tr>
                 <tr>
                     <td>
-                        <textarea rows="5" name="commentBody" id="commentBody" placeholder="(*必填)请输入你的评论"></textarea>
+                        <textarea rows="5" name="commentBody" id="commentBody" placeholder="Please write your comment (*can not be null)"></textarea>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2" align="center">
                         <button id="commentSubmit" type="submit"
-                                class="submit am-btn am-btn-primary">提交
+                                class="submit am-btn am-btn-primary">submit
                         </button>
                     </td>
                 </tr>

@@ -38,13 +38,13 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav nav-pills navbar-nav">
                         <li>
-                            <a th:href="@{/index}">主页</a>
+                            <a th:href="@{/index}">home</a>
                         </li>
                         <li>
-                            <a th:href="@{/link}">友链</a>
+                            <a th:href="@{/link}">link</a>
                         </li>
                         <li>
-                            <a th:href="@{/about}">关于</a>
+                            <a th:href="@{/about}">about</a>
                         </li>
                         <li>
                             <a href="https://github.com/ZHENFENG13">GitHub</a>
@@ -104,7 +104,7 @@
                         <th:block th:each="comment,iterStat : ${commentPageResult.list}">
                             <article class="comment">
                                 <header class="clearfix">
-                                    <img th:src="@{/blog/default/img/avatar.png}" class="avatar">
+                                    <img th:src="@{${comment.imgUrl}(s='80',r='G',d='')}" class="avatar"/>
                                     <div class="meta">
                                         <h3 th:text="${comment.commentator}"></h3>
                                         <span class="date">
